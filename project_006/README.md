@@ -1,0 +1,17 @@
+## How to
+- `python manage.py migrate`
+- `python manage.py makemigrations item`
+- `python manage.py migrate`
+- `python manage.py shell`
+  - `from item.models import Category, SubCategory, Item`
+  - `category = Category(name = 'Electronics')`
+  - `category.save()`
+  - `print(Category.objects.all())`
+  - `sub_category = SubCategory(category=category, name = 'Mobile')`
+  - `sub_category.save()`
+  - `print(SubCategory.objects.all())`
+  - `item = Item(category = category, sub_category = sub_category, name = 'iPhone 11 Pro', image = 'iphone_11_pro.jpg')`
+  - `item.save()`
+  - `print(Item.objects.all())`
+  - `exit()`
+- `python manage.py createsuperuser`
