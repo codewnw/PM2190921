@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load staticfiles  %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome to Django project</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "css/master.css" %}">
+  </head>
+  <body>
+    <div class="container">
+      <div class="jambotron">
+          <h1>{{heading}}</h1>
+          <p>{{paragraph}}</p>
+          <img src="{% static "images/django.jpg" %}" alt="Image is not available">
+    </div>
+    <table>
+      <tr>
+        <td>Item name:</td>
+        <td>{{item.name}}</td>
+      </tr>
+      <tr>
+        <td>Item description:</td>
+        <td>{{item.description}}</td>
+      </tr>
+      <tr>
+        <td>Item image:</td>
+        <td><img src="{{item.image}}" alt="Image is not available"></td>
+      </tr>
+    </table>
+  </div>
+  </body>
+</html>
