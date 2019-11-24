@@ -18,7 +18,7 @@ class Item(models.Model):
     category = models.ForeignKey(Category, on_delete = models.PROTECT)
     sub_category = models.ForeignKey(SubCategory, on_delete = models.PROTECT)
     name = models.CharField(max_length = 255, unique = True)
-    description = models.CharField(max_length = 1024)
+    description = models.CharField(max_length = 1024, null = True)
     image = models.CharField(max_length = 255)
 
     def __str__(self):
