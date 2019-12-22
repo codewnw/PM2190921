@@ -1,3 +1,17 @@
 {% extends 'customer/base.html' %} {% block content %}
-<h1>This is registration form</h1>
+<div class="jumbotron">
+  <h1>This is registration page</h1>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia est earum
+    laborum doloremque ipsum dolore fugit quaerat dignissimos blanditiis dolorem
+    omnis quia, atque nisi, explicabo ab perspiciatis dolor nesciunt nam.
+  </p>
+</div>
+<form
+  action="{% url 'customer:register' %}"
+  method="post"
+  enctype="multipart/form-data"
+>
+  {% csrf_token %} {{user_form.as_p}} {{customer_form.as_p}}
+</form>
 {% endblock %}

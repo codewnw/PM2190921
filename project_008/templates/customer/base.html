@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load my_filter %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,7 +12,7 @@
       crossorigin="anonymous"
     />
     {% if django_title %}
-    <title>{{django_title|upper}}</title>
+    <title>{{django_title|upper|change:'DJANGO'}}</title>
     {% else %}
     <title>Welcome to Django !!!</title>
     {% endif %}
@@ -21,7 +22,7 @@
       <!-- header -->
       {% block header %}
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="{% url 'index' %}">Navbar</a>
         <button
           class="navbar-toggler"
           type="button"
