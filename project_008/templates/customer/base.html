@@ -46,9 +46,16 @@
                 >Register</a
               >
             </li>
+            
+            {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'customer:login' %}">Login</a>
+              <a class="nav-link" href="{% url 'customer:customer_logout' %}">Logout</a>
             </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'customer:customer_login' %}">Login</a>
+            </li>
+            {% endif %}
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
@@ -65,7 +72,7 @@
                 class="dropdown-menu"
                 aria-labelledby="navbarDropdownMenuLink"
               >
-                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" target="_blank" href="{% url 'admin:index' %}">Admin</a>
                 <a class="dropdown-item" href="#">Another action</a>
                 <a class="dropdown-item" href="#">Something else here</a>
               </div>

@@ -7,11 +7,15 @@
     omnis quia, atque nisi, explicabo ab perspiciatis dolor nesciunt nam.
   </p>
 </div>
+{% if registered %}
+<h1>Thank you for registration.</h1>
+{% else %}
 <form
   action="{% url 'customer:register' %}"
   method="post"
   enctype="multipart/form-data"
 >
   {% csrf_token %} {{user_form.as_p}} {{customer_form.as_p}}
+  <input type="submit" class="btn btn-primary" value="Register" />
 </form>
-{% endblock %}
+{% endif %} {% endblock %}
