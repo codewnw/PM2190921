@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+    {% for job in job_list %}
+
+    <div class="col-md-12">
+        <div class="row no-gutters border rounded overflow-hidden position-relative">
+            <div class="col p-4 position-static">
+                <strong class="d-inline-block mb-2 text-success"><span class="badge badge-primary">Python</span><span
+                        class="badge badge-success">Django</span></strong>
+                <h3 class="mb-0">{{job.title}}</h3>
+                <div class="mb-1 text-muted">Nov 11</div>
+                <div class="mb-1 text-muted">Exp: 2-3 Years</div>
+                <div class="mb-1 text-muted">Location: Banaglore</div>
+                <p class="mb-auto">{{job.description}}</p>
+                <a href="#" class="btn btn-primary">View</a>
+                <a href="#" class="btn btn-success pull-right">Apply</a>
+            </div>
+        </div>
+    </div>
+    <br>
+    {% endfor %}
+</div>
+{% endblock %}
