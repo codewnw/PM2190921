@@ -1,4 +1,4 @@
 from django.contrib import admin
-from career.models import (Job)
+from jobs.models import (Job)
 
 admin.site.register(Job)

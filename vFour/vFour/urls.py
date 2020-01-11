@@ -20,6 +20,6 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.HomeView.as_view(), name='index'),
-    url(r'career/', include('career.urls', namespace='career')),
+    url(r'jobs/', include('jobs.urls', namespace='jobs')),
     path('admin/', admin.site.urls),
 ]
