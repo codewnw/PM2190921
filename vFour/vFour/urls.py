@@ -20,6 +20,7 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.HomeView.as_view(), name='index'),
+    url(r'contact_us/', views.ContactUsView.as_view(), name='contact_us'),
     url(r'jobs/', include('jobs.urls', namespace='jobs')),
     url(r'accounts/', include('accounts.urls', namespace='accounts')),
     url(r'accounts/', include('django.contrib.auth.urls')),
