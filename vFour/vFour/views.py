@@ -3,3 +3,6 @@ from django.views.generic import TemplateView
 
 class HomeView(TemplateView):
     template_name = 'index.html'
+
+class LoggedOutView(TemplateView):
+    template_name = 'logout.html'

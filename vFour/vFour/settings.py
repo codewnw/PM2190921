@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap4',
+    'accounts',
     'jobs',
 ]
 
@@ -121,3 +123,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [STATICFILE_DIR,]
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = 'logout_page'

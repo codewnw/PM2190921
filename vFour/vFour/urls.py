@@ -21,5 +21,8 @@ from . import views
 urlpatterns = [
     url(r'^$', views.HomeView.as_view(), name='index'),
     url(r'jobs/', include('jobs.urls', namespace='jobs')),
+    url(r'accounts/', include('accounts.urls', namespace='accounts')),
+    url(r'accounts/', include('django.contrib.auth.urls')),
+    url(r'logout_page/', views.LoggedOutView.as_view(), name='logout_page'),
     path('admin/', admin.site.urls),
 ]
