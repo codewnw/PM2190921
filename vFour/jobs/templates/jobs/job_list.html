@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
 
 {% block body %}
+{% if user.groups.all.0.name == 'HR' %}
 <div class="row">
     <div class="col">
-        <a href="#" class="btn btn-info btn-block">Add new Job</a>
+        <a href="{% url 'jobs:add' %}" class="btn btn-info btn-block">Add new Job</a>
     </div>
 </div>
+{% endif %}
+
 <br>
 {% for job in job_list %}
 <div class="col-md-12">
@@ -41,10 +44,10 @@
                     {% endif %}
 
                     {% if perms.jobs.change_job %}
-                    <a href="#" class="btn btn-success">Update</a>
+                    <a href="{% url 'jobs:job_update' pk=job.pk %}" class="btn btn-success">Update</a>
                     {% endif %}
                     {% if perms.jobs.delete_job %}
-                    <a href="#" class="btn btn-danger">Delete</a>
+                    <a href="{% url 'jobs:job_delete' pk=job.pk %}" class="btn btn-danger">Delete</a>
                     {% endif %}
                 </div>
             </div>
