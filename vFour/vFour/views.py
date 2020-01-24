@@ -10,3 +10,9 @@ class LoggedOutView(LoginRequiredMixin, TemplateView):
 
 class ContactUsView(TemplateView):
     template_name = 'contact_us.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['data'] = 'This is really amazing.'
+        return context
+    
