@@ -36,6 +36,7 @@
             <a class="py-2 d-none d-md-inline-block" href="{% url 'jobs:all' %}">Career</a>
 
             {% if user.is_authenticated %}
+            <a class="py-2 d-none d-md-inline-block" href="{% url 'accounts:password_change' %}">Reset Password</a>
             <a class="py-2 d-none d-md-inline-block" href="{% url 'accounts:logout' %}">Logout</a>
             {% else %}
             <a class="py-2 d-none d-md-inline-block" href="{% url 'accounts:login' %}">Login</a>

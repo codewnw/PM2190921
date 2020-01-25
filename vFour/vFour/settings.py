@@ -26,7 +26,7 @@ SECRET_KEY = 'ddsjz1n*t$^d$fr2glf=9d$fmo9czv*trq3d1yb!=(t6-rx_5%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost',]
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', ]
 
 
 # Application definition
@@ -58,7 +58,7 @@ ROOT_URLCONF = 'vFour.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_DIR,],
+        'DIRS': [TEMPLATE_DIR, ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -89,18 +89,18 @@ DATABASES = {
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    # },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    # },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    # },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    # },
 ]
 
 
@@ -122,6 +122,32 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [STATICFILE_DIR,]
+STATICFILES_DIRS = [STATICFILE_DIR, ]
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = 'logout_page'
+
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+ADMINS = (
+    ('code.wnw', 'code.wnw@gmail.com'),
+)
+
+MANAGERS = ADMINS
+
+
+# When you are playing around with the app and you expect that an email should
+# have been sent, just run `./manage.py send_mail` and you will get the mail
+# to the ADMINS account, no matter who the real recipient was.
+MAILER_EMAIL_BACKEND = 'django_libs.test_email_backend.EmailBackend'
+TEST_EMAIL_BACKEND_RECIPIENTS = ADMINS
+
+FROM_EMAIL = ADMINS[0][1]
+# EMAIL_SUBJECT_PREFIX = '[vFour Reset Password] '
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = FROM_EMAIL
+
+# Enter your gmail PW from the ADMINS email entered above.
+EMAIL_HOST_PASSWORD = '****'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
